@@ -1,0 +1,17 @@
+version: '3'
+services:
+  app:
+    build: .
+    environment:
+      RAILS_ENV: development
+      DATABASE_URL: mysql2://root:pass@mysql:3306
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/src/app
+  mysql:
+    image: togana/commit-log-db:v1.0
+    environment:
+      MYSQL_ROOT_PASSWORD: 'pass'
+    ports:
+      - 3306:3306
