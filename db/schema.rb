@@ -12,10 +12,10 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
-  create_table "message", primary_key: "sha", id: :string, limit: 40, default: "", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+  create_table "messages", primary_key: "sha", id: :string, limit: 40, default: "", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "repo"
     t.text   "message", limit: 65535
-    t.index ["message"], name: "fulltext-message", type: :fulltext
+    t.index ["message"], name: "full-text-index-message", type: :fulltext
   end
 
 end
